@@ -5,8 +5,8 @@ def base_theme():
     return {
         "config": {
             "view": {"stroke": None},
-            "axis": {"labelFontSize": 12, "titleFontSize": 13},
-            "legend": {"labelFontSize": 12, "titleFontSize": 13},
+            "axis": {"labelFontSize": 12, "titleFontSize": 14},
+            "legend": {"labelFontSize": 12, "titleFontSize": 14},
         }
     }
 

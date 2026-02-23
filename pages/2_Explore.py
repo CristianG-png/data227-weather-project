@@ -5,7 +5,7 @@ from charts.charts import chart_dashboard
 st.set_page_config(page_title="Explore", layout="wide")
 df = load_weather()
 
-st.title("Explore: Interactive View")
+st.title("Interactive Exploratory View")
 st.write("Use interaction to validate and extend the story—focus on one weather type, then zoom into a time window.")
 
 st.altair_chart(chart_dashboard(df), use_container_width=True)

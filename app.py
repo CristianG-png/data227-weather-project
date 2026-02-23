@@ -2,11 +2,13 @@ import streamlit as st
 
 st.set_page_config(page_title="Narrative Viz Tutorial", layout="wide")
 
-st.title("Narrative Visualization Tutorial (Streamlit + Altair)")
+st.title("Weather Patterns in Seattle")
+st.write("This project is meant to serve as a demonstration of a Narrative Visualization project\
+         where charts are designed using Altair. This project is deployed using Streamlit.\n")
 st.write(
-    "Use the pages in the sidebar:\n"
-    "- **Story**: guided narrative (author-driven)\n"
-    "- **Explore**: interactive dashboard (reader-driven)\n"
-    "- **Methods**: data + limitations\n"
+    "To explore this visual data story, please navigate it through the pages in the sidebar:\n"
+    "- **Central Narrative**: We begin by taking into account daily weather patterns over time.\n"
+    "- **Exploration**: For a closer reader-driven exploration of the data, we provide a few interactive designs.\n"
+    "- **Methodology**: We lay down some key details about our data and limitations to our analysis.\n"
 )
 st.info("Dataset: `vega_datasets.data.seattle_weather()`")
