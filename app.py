@@ -13,4 +13,5 @@ st.write(
     "- **Exploration**: For a closer reader-driven exploration of the data, we provide a few interactive designs.\n"
     "- **Methodology**: We lay down some key details about our data and limitations to our analysis.\n"
 )
+st.write(Image.open('images/seattleneighborhoodmap.jpg'))
 st.info("Dataset: `vega_datasets.data.seattle_weather()`")
