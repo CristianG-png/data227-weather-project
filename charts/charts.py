@@ -128,3 +128,49 @@ def chart_dashboard(df: pd.DataFrame) -> alt.Chart:
     )
 
     return alt.vconcat(line, hist).resolve_scale(color="independent")
+
+def chart_wind_dashboard(df: pd.DataFrame) -> alt.Chart:
+    weather_types = sorted(df["weather"].unique())
+
+    w_select = alt.selection_point(
+        fields=["weather"],
+        bind=alt.binding_select(options=weather_types, name="Weather: "),
+    )
+
+    brush = alt.selection_interval(encodings=["x"], name="Time window")
+
+    #Top chart: Wind over time
+    line = (
+        alt.Chart(df)
+        .mark_line()
+        .encode(
+            x=alt.X("date:T", title="Date"),
+            y=alt.Y("wind:Q", title="Wind Speed (mph)"),
+            color=alt.Color("weather:N", title="Weather"),
+            tooltip=[
+                "date:T",
+                "weather:N",
+                alt.Tooltip("wind:Q", format=".1f", title="Wind (mph)"),
+            ],
+        )
+        .add_params(w_select, brush)
+        .transform_filter(w_select)
+        .properties(height=260)
+    )
+
+    #Bottom chart: Histogram of wind speeds
+    hist = (
+        alt.Chart(df)
+        .mark_bar()
+        .encode(
+            x=alt.X("wind:Q", bin=alt.Bin(maxbins=30), title="Wind Speed (mph)"),
+            y=alt.Y("count():Q", title="Days"),
+            tooltip=[alt.Tooltip("count():Q", title="Days")],
+        )
+        .transform_filter(w_select)
+        .transform_filter(brush)
+        .properties(height=260)
+    )
+
+    return alt.vconcat(line, hist).resolve_scale(color="independent")
+
