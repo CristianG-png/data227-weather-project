@@ -43,5 +43,4 @@ st.caption("Takeaway: The relationship is noisy — precipitation alone does not
 st.header("5)  Monthly Percipitation")
 st.write("(elaborate)")
 st.pyplot(chart_static_monthly_precip(df))
-st.altair_chart(chart_static_monthly_precip(df), use_container_width=True)
 st.caption("Takeaway: (elaborate)")
