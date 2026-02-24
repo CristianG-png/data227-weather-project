@@ -71,23 +71,24 @@ def chart_explain_precip_vs_temp(df: pd.DataFrame) -> alt.Chart:
         .properties(height=320)
     )
 
-def chart_static_monthly_precip(df):
+def chart_monthly_precip(df):
+    month_order = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
     df_monthly = (
-        df.assign(month=df["date"].dt.month)
-          .groupby("month")["precipitation"]
+        df.assign(month_name=df["date"].dt.strftime("%b"))
+          .groupby("month_name")["precipitation"]
           .mean()
+          .reindex(month_order)  # ensures correct order
           .reset_index()
     )
-
     fig, ax = plt.subplots(figsize=(10, 5))
-    ax.bar(df_monthly["month"], df_monthly["precipitation"], color="tab:blue")
+    ax.bar(df_monthly["month_name"], df_monthly["precipitation"], color="tab:blue")
 
     ax.set_title("Average Monthly Precipitation in Seattle")
     ax.set_xlabel("Month")
     ax.set_ylabel("Precipitation (inches)")
-    ax.set_xticks(range(1, 13))
 
     return fig
+
 
 
 def chart_dashboard(df: pd.DataFrame) -> alt.Chart:
