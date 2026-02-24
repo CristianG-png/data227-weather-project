@@ -7,7 +7,7 @@ from charts.charts import (
     chart_context_seasonality,
     chart_surprise_extremes,
     chart_explain_precip_vs_temp,
-    chart_static_monthly_precip
+    chart_monthly_precip
 )
 
 st.set_page_config(page_title="Story", layout="wide")
@@ -40,7 +40,7 @@ st.write("We wish to test a plausible explanation: are the warmest days also the
 st.altair_chart(chart_explain_precip_vs_temp(df), use_container_width=True)
 st.caption("Takeaway: The relationship is noisy — precipitation alone does not explain extreme heat, motivating more fine-grained exploration.")
 
-st.header("5)  Monthly Percipitation")
+st.header("5)  Monthly Precipitation")
 st.write("(elaborate)")
-st.pyplot(chart_static_monthly_precip(df))
+st.pyplot(chart_monthly_precip(df))
 st.caption("Takeaway: (elaborate)")
