@@ -10,6 +10,8 @@ st.write("Use interaction to validate and extend the story—focus on one weathe
 
 st.altair_chart(chart_dashboard(df), use_container_width=True)
 
+st.altair_chart(chart_wind_dashboard(df), use_container_width=True)
+
 st.markdown("**Guided prompts:**")
 st.write("- Filter to one weather type (e.g., `sun`, `rain`)—does the temperature distribution shift?")
 st.write("- Brush a specific year—do extremes cluster in particular periods?")
