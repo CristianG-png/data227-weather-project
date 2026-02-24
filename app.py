@@ -1,9 +1,9 @@
 import streamlit as st
 from PIL import Image
 
-st.set_page_config(page_title="Narrative Viz Tutorial", layout="wide")
+st.set_page_config(page_title="Analysis of Weather Patterns in Seattle", layout="wide")
 
-st.title("Weather Patterns in Seattle")
+st.title("Analysis of Weather Patterns in Seattle")
 st.write(Image.open('images/seattle-weather.jpg'))
 st.write("This project is meant to serve as a demonstration of a Narrative Visualization project\
          where charts are designed using Altair. This project is deployed using Streamlit.\n")
