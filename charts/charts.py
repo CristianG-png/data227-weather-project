@@ -1,5 +1,6 @@
 import altair as alt
 import pandas as pd
+import matplotlib.pyplot as plt
 
 def base_theme():
     return {
@@ -69,6 +70,18 @@ def chart_explain_precip_vs_temp(df: pd.DataFrame) -> alt.Chart:
         )
         .properties(height=320)
     )
+
+def chart_temp_over_time(df):
+    fig, ax = plt.subplots(figsize=(10, 5))
+    ax.plot(df["date"], df["temp"], color="tab:red", linewidth=2)
+
+    ax.set_title("Temperature Over Time", fontsize=16)
+    ax.set_xlabel("Date")
+    ax.set_ylabel("Temperature (°F)")
+    ax.grid(True, alpha=0.3)
+
+    fig.autofmt_xdate()
+    return fig
 
 def chart_dashboard(df: pd.DataFrame) -> alt.Chart:
     weather_types = sorted(df["weather"].unique())
