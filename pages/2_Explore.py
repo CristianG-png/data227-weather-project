@@ -14,7 +14,7 @@ st.altair_chart(chart_dashboard(df), use_container_width=True)
 st.header("Wind Speed")
 
 st.altair_chart(chart_wind_dashboard(df), use_container_width=True)
-st.caption("Takeaway: Wind speed, unlike temperature, varies wildly. This means that wind speed is not as clear of a seasonal pattern, but early motnhs of the year do seem to be when the highest windspeeds occur.")
+st.caption("Takeaway: Wind speed, unlike temperature, varies wildly. This means that wind speed is not as clear of a seasonal pattern, but early months of the year do seem to be when the highest windspeeds occur.")
 
 st.markdown("**Guided prompts:**")
 st.write("- Filter to one weather type (e.g., `sun`, `rain`)—does the temperature distribution shift?")
