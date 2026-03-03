@@ -41,6 +41,6 @@ st.altair_chart(chart_explain_precip_vs_temp(df), use_container_width=True)
 st.caption("Takeaway: The relationship is noisy — precipitation alone does not explain extreme heat, motivating more fine-grained exploration.")
 
 st.header("5)  Monthly Precipitation")
-st.write("Rather than looking at the days, looking at percipitation pattern by a seasonal rhythm could help answer the previously sked question.")
+st.write("Rather than looking at the days, looking at percipitation pattern by a seasonal rhythm could help answer the previously asked question.")
 st.pyplot(chart_monthly_precip(df))
 st.caption("Takeaway: The Fall and Winter seasons are when the most percipitation occurs, while the summer is very dry. This can be helpful in planning good times for outdoor activity and when to do certain planning.")
